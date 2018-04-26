@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:xwingacapp/model/pilot.dart';
-import 'package:xwingacapp/model/xwingConstants.dart';
 import 'package:xwingacapp/ui/pilotCard.dart';
 
 void main() => runApp(new MyApp());
