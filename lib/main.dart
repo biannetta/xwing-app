@@ -45,7 +45,8 @@ class _XwingState extends State<Xwing> {
          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Text(
-              'You have pushed the button this many times:',
+              "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#\$%^&*()`~':;?><.,",
+              style: new TextStyle(fontFamily: 'Xwing', fontSize: 28.0),
             ),
             new Text(
               '$_counter',
