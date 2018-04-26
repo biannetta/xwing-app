@@ -40,12 +40,8 @@ class _XwingState extends State<Xwing> {
       ),
       body: new Center(
         child: new Column(
-         mainAxisAlignment: MainAxisAlignment.center,
+         mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            new Text(
-              XwingConstants.Turret,
-              style: new TextStyle(fontFamily: 'Xwing', fontSize: 100.0),
-            ),
             new PilotCard(_pilot),
           ],
         ),
