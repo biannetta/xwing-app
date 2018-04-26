@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:xwingacapp/model/pilot.dart';
+import 'package:xwingacapp/model/xwingConstants.dart';
+import 'package:xwingacapp/ui/pilotCard.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -26,13 +30,7 @@ class Xwing extends StatefulWidget {
 }
 
 class _XwingState extends State<Xwing> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-     _counter++;
-    });
-  }
+  final Pilot _pilot = new Pilot("Renson", 2);
 
   @override
   Widget build(BuildContext context) {
@@ -45,21 +43,13 @@ class _XwingState extends State<Xwing> {
          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Text(
-              "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#\$%^&*()`~':;?><.,",
-              style: new TextStyle(fontFamily: 'Xwing', fontSize: 28.0),
+              XwingConstants.Turret,
+              style: new TextStyle(fontFamily: 'Xwing', fontSize: 100.0),
             ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            new PilotCard(_pilot),
           ],
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
