@@ -1,10 +1,14 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:convert';
 
 import 'package:path_provider/path_provider.dart';
 
 class LocalStorage {
-  
+  String _fileName;
+
+  LocalStorage(this._fileName);
+
   Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
     return directory.path;
@@ -12,22 +16,22 @@ class LocalStorage {
 
   Future<File> get _localFile async {
     final path = await _localPath;
-    return new File('$path/xwinghotac.txt');
+    return new File('$path/${this._fileName}.json');
   }
 
-  Future<int> readStorage() async {
+  Future<Map<String,dynamic>> readStorage() async {
     try {
       final file = await _localFile;
       String contents = await file.readAsString();
 
-      return int.parse(contents);
+      return json.decode(contents);
     } catch (e) {
-      return 0;
+      return null;
     }
   }
 
   Future<File> writeToStorage(int stuff) async {
     final file = await _localFile;
-    return file.writeAsString('$stuff');
+    return file.writeAsString(json.encode(stuff));
   }
 }

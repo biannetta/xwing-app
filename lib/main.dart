@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:xwingacapp/model/pilot.dart';
 import 'package:xwingacapp/ui/pilotCard.dart';
+import 'package:xwingacapp/model/localStorage.dart';
 
 void main() => runApp(new MyApp());
 
@@ -29,7 +30,15 @@ class Xwing extends StatefulWidget {
 }
 
 class _XwingState extends State<Xwing> {
-  final Pilot _pilot = new Pilot("Renson", 2);
+  LocalStorage storage;
+  Pilot _pilot = new Pilot("Renson", 2);
+
+  @override
+  void initState() {
+    super.initState();
+    storage = new LocalStorage('xwingpilots');
+    storage.readStorage().then((value) => print(value));
+  }
 
   @override
   Widget build(BuildContext context) {
